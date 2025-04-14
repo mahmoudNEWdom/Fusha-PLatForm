@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  output: "server",
   compiler: {
     styledComponents: true,
     emotion: true,
