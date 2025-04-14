@@ -1003,3 +1003,30 @@ const PlaceDetail = () => {
 };
 
 export default PlaceDetail;
+
+
+export async function generateStaticParams() {
+  try {
+    // This runs at build time, not client-side
+    const response = await fetch(
+      "https://iti-server-production.up.railway.app/api/seller-places/all-ids"
+    );
+
+    if (!response.ok) {
+      // Fallback to some default IDs if API call fails
+      console.error("Failed to fetch place IDs for static generation");
+      return [{ id: "placeholder" }];
+    }
+
+    const data = await response.json();
+
+    // Map the IDs to the format Next.js expects
+    return data.ids.map((id) => ({
+      id: id,
+    }));
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error);
+    // Return at least one ID to prevent build failure
+    return [{ id: "placeholder" }];
+  }
+}
