@@ -1,12 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: "server",
-  // Explicitly tell Next.js to treat this route as dynamic
-  experimental: {
-    serverComponents: true,
-    appDir: true,
-  },
   compiler: {
     styledComponents: true,
     emotion: true,
@@ -30,6 +24,9 @@ const nextConfig = {
         hostname: "img.youtube.com",
       },
     ],
+  },
+  experimental: {
+    serverActions: true,
   },
 };
 
