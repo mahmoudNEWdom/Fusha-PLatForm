@@ -22,7 +22,7 @@ import {
   Divider,
 } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
-import AdminLayout from "../../Components/admin/AdminLayout";
+import AdminLayout from "../../components/admin/AdminLayout";
 import { motion } from "framer-motion";
 
 // Icons
@@ -112,7 +112,7 @@ const RejectedPlaces = () => {
 
         try {
           const response = await axios.get(
-            "https://iti-server-production.up.railway.app/api/admin/places/rejected",
+            "https://iti-server-production.up.railway.app/admin/places/rejected",
             {
               headers: {
                 Authorization: `Bearer ${token}`,

@@ -212,7 +212,7 @@ const Profile = () => {
   const fetchUserData = async (userId) => {
     try {
       const response = await axios.get(
-        `https://iti-server-production.up.railway.app/api/user/${userId}`
+        `https://iti-server-production.up.railway.app/user/${userId}`
       );
       return response.data;
     } catch (error) {
@@ -249,7 +249,7 @@ const Profile = () => {
 
           // Send update request to backend
           const response = await axios.put(
-            `https://iti-server-production.up.railway.app/api/user/${user._id}`,
+            `https://iti-server-production.up.railway.app/user/${user._id}`,
             payload
           );
 

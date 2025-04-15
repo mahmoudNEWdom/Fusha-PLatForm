@@ -80,6 +80,7 @@ import {
 import { format } from "date-fns"; // You'll need to install this package
 import { ar } from "date-fns/locale"; // Arabic locale for dates
 import { StyledTextField } from "../styledComponent/TripType/StyledTripType";
+import TripDetailsDialog from "./TripDetailsDialog";
 
 const Trips = () => {
   const { darkMode, toggleTheme, theme } = useTheme(); // Use theme context
@@ -95,6 +96,8 @@ const Trips = () => {
   const [favoriteTrips, setFavoriteTrips] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [selectedTripId, setSelectedTripId] = useState(null);
+  const [isDetailsDialogOpen, setIsDetailsDialogOpen] = useState(false);
   const token = localStorage.getItem("token");
   const router = useRouter();
 
@@ -108,7 +111,7 @@ const Trips = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "https://iti-server-production.up.railway.app/api/createprogram",
+        "https://iti-server-production.up.railway.app/createprogram",
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -222,7 +225,7 @@ const Trips = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://iti-server-production.up.railway.app/api/createprogram/${id}`,
+        `https://iti-server-production.up.railway.app/createprogram/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -357,7 +360,8 @@ const Trips = () => {
   };
 
   const handleViewDetails = (id) => {
-    router.push(`/trip-details/${id}`);
+    setSelectedTripId(id);
+    setIsDetailsDialogOpen(true);
   };
 
   const handleEditTrip = (id, event) => {
@@ -373,6 +377,18 @@ const Trips = () => {
       setSortBy("date");
       setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     }
+  };
+
+  const handleTripDeleted = (deletedTripId) => {
+    setItems((prevItems) =>
+      prevItems.filter((item) => item._id !== deletedTripId)
+    );
+    setDeleteSuccess(true);
+    setTimeout(() => setDeleteSuccess(false), 3000);
+  };
+
+  const handleTripUpdated = () => {
+    fetchData(); // Re-fetch the data
   };
 
   return (
@@ -1233,6 +1249,17 @@ const Trips = () => {
                 الرحلة بنجاح
               </SuccessMessage>
             </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {isDetailsDialogOpen && (
+            <TripDetailsDialog
+              tripId={selectedTripId}
+              isOpen={isDetailsDialogOpen}
+              onClose={() => setIsDetailsDialogOpen(false)}
+              onTripDeleted={handleTripDeleted}
+              onTripUpdated={handleTripUpdated}
+            />
           )}
         </AnimatePresence>
       </MyMyBox>

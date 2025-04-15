@@ -1,7 +1,8 @@
-import FinalProgramClient from "./FinalProgramClient";
+import React, { Suspense } from "react";
+import FinalProgram from "@/app/Components/FinalProgram";
 import Container from "@mui/material/Container";
 
-export default function Page({ params }) {
+const Page = () => {
   return (
     <Container
       maxWidth="lg"
@@ -12,30 +13,11 @@ export default function Page({ params }) {
         marginTop: "6rem",
       }}
     >
-      <FinalProgramClient programId={params.final} />
+      <Suspense fallback={<div>Loading…</div>}>
+        <FinalProgram />
+      </Suspense>
     </Container>
   );
-}
+};
 
-// Add generateStaticParams to fetch all program IDs
-export async function generateStaticParams() {
-  try {
-    const response = await fetch(
-      "https://iti-server-production.up.railway.app/api/createprogram/all-ids"
-    );
-
-    if (!response.ok) {
-      console.error("Failed to fetch program IDs for static generation");
-      return [{ final: "placeholder" }];
-    }
-
-    const data = await response.json();
-    return data.ids.map((id) => ({
-      final: id,
-    }));
-  } catch (error) {
-    console.error("Error in generateStaticParams:", error);
-    // Return at least one ID to prevent build failure
-    return [{ final: "placeholder" }];
-  }
-}
+export default Page;

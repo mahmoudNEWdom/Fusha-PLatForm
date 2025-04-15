@@ -31,7 +31,7 @@ const TestimonialsSection = ({ theme, darkMode }) => {
     const fetchTestimonials = async () => {
       try {
         const response = await axios.get(
-          "https://iti-server-production.up.railway.app/api/avatar"
+          "https://iti-server-production.up.railway.app/avatar"
         );
         setTestimonials(response.data);
       } catch (error) {

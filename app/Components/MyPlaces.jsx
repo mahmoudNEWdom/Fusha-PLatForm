@@ -246,7 +246,7 @@ const MyPlaces = () => {
 
         try {
           const response = await axios.get(
-            "https://iti-server-production.up.railway.app/api/seller-places/my-places",
+            "https://iti-server-production.up.railway.app/seller-places/my-places",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -502,7 +502,7 @@ const MyPlaces = () => {
       // Also fetch the latest details from backend to get most up-to-date info
       try {
         const response = await axios.get(
-          `https://iti-server-production.up.railway.app/api/seller-places/my-places/${placeId}/details`,
+          `https://iti-server-production.up.railway.app/seller-places/my-places/${placeId}/details`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -585,7 +585,7 @@ const MyPlaces = () => {
       // Fetch latest statistics from backend
       try {
         const response = await axios.get(
-          `https://iti-server-production.up.railway.app/api/seller-places/my-places/${placeId}/statistics`,
+          `https://iti-server-production.up.railway.app/seller-places/my-places/${placeId}/statistics`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

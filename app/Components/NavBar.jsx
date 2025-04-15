@@ -115,6 +115,7 @@ const NavBar = () => {
   const handleDarkModeToggle = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
+
   useEffect(() => {
     setMounted(true);
     const savedUser = localStorage.getItem("user");

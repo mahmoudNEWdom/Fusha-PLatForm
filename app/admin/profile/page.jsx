@@ -16,7 +16,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
-import AdminLayout from "../../Components/admin/AdminLayout";
+import AdminLayout from "../../components/admin/AdminLayout";
 import { motion } from "framer-motion";
 
 // Icons
@@ -143,7 +143,7 @@ const AdminProfile = () => {
       }, 1500);
 
       /* Actual API call - uncomment when API is ready
-      const response = await axios.put(`https://iti-server-production.up.railway.app/api/admin/profile`, editData, {
+      const response = await axios.put(`https://iti-server-production.up.railway.app/admin/profile`, editData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

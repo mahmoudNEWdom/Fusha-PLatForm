@@ -427,7 +427,7 @@ const Register = () => {
 
         try {
           const response = await axios.post(
-            "https://iti-server-production.up.railway.app/api/user",
+            "https://iti-server-production.up.railway.app/user",
             payload
           );
           console.log("Registration successful:", response.data.user);

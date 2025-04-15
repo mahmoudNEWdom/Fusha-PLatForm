@@ -29,7 +29,7 @@ import {
   DialogActions,
 } from "@mui/material";
 import { useTheme } from "../../context/ThemeContext";
-import AdminLayout from "../../Components/admin/AdminLayout";
+import AdminLayout from "../../components/admin/AdminLayout";
 import { motion } from "framer-motion";
 
 // Icons
@@ -246,7 +246,7 @@ const ApprovedPlaces = () => {
 
         try {
           const response = await axios.get(
-            "https://iti-server-production.up.railway.app//api/admin/places/approved",
+            "http://localhost:4000//api/admin/places/approved",
             {
               headers: {
                 Authorization: `Bearer ${token}`,

@@ -77,7 +77,7 @@ const Program = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          "https://iti-server-production.up.railway.app/api/places",
+          "https://iti-server-production.up.railway.app/places",
           {
             timeout: 10000, // Add timeout for better error handling
           }

@@ -21,7 +21,7 @@ const CategoriesSection = ({ theme, darkMode }) => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://iti-server-production.up.railway.app/api/home"
+          "https://iti-server-production.up.railway.app/home"
         );
         setCategories(response.data.categories);
       } catch (error) {
