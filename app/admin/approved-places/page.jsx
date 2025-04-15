@@ -246,7 +246,7 @@ const ApprovedPlaces = () => {
 
         try {
           const response = await axios.get(
-            "http://localhost:4000//api/admin/places/approved",
+            "https://iti-server-production.up.railway.app/api/admin/places/approved",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
