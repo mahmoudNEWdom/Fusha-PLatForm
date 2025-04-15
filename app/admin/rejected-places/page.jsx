@@ -112,7 +112,7 @@ const RejectedPlaces = () => {
 
         try {
           const response = await axios.get(
-            "https://iti-server-production.up.railway.app/admin/places/rejected",
+            "https://iti-server-production.up.railway.app/api/admin/places/rejected",
             {
               headers: {
                 Authorization: `Bearer ${token}`,

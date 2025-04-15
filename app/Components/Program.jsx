@@ -77,7 +77,7 @@ const Program = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          "https://iti-server-production.up.railway.app/places",
+          "https://iti-server-production.up.railway.app/api/places",
           {
             timeout: 10000, // Add timeout for better error handling
           }
@@ -703,7 +703,10 @@ const Program = () => {
 
           {savedItems.length > 0 && (
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/create/final" style={{ textDecoration: "none" }}>
+              <Link
+                href="/create/final"
+                style={{ textDecoration: "none" }}
+              >
                 <div
                   style={{
                     background: darkMode

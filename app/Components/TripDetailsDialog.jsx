@@ -90,6 +90,8 @@ const NextArrow = (props) => {
   );
 };
 
+
+
 const TripDetailsDialog = ({
   tripId,
   isOpen,
@@ -115,7 +117,7 @@ const TripDetailsDialog = ({
         if (!token) return;
 
         const response = await axios.get(
-          `https://iti-server-production.up.railway.app/createprogram/${tripId}`,
+          `http://localhost:4000/api/createprogram/${tripId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
@@ -166,12 +168,9 @@ const TripDetailsDialog = ({
   const confirmDeleteTrip = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(
-        `https://iti-server-production.up.railway.app/createprogram/${tripId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      await axios.delete(`http://localhost:4000/api/createprogram/${tripId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
       // Notify parent that trip was deleted
       if (onTripDeleted) onTripDeleted(tripId);
@@ -829,6 +828,8 @@ const TripDetailsDialog = ({
 };
 
 export default TripDetailsDialog;
+
+
 
 const ConfirmationOverlay = styled(motion.div)`
   position: fixed;

@@ -217,7 +217,7 @@ const PendingPlaces = () => {
         }
 
         const response = await axios.get(
-          "https://iti-server-production.up.railway.app/admin/places/pending",
+          "https://iti-server-production.up.railway.app/api/admin/places/pending",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -252,7 +252,7 @@ const PendingPlaces = () => {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `https://iti-server-production.up.railway.app/admin/places/${placeId}/approve`,
+        `https://iti-server-production.up.railway.app/api/admin/places/${placeId}/approve`,
         {},
         {
           headers: {
@@ -295,7 +295,7 @@ const PendingPlaces = () => {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `https://iti-server-production.up.railway.app/admin/places/${selectedPlace._id}/reject`,
+        `https://iti-server-production.up.railway.app/api/admin/places/${selectedPlace._id}/reject`,
         { rejectionReason },
         {
           headers: {

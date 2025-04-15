@@ -203,7 +203,7 @@ const ReadyPrograms = () => {
         setLoading(true);
         setIsPageLoading(true); // Set both loading states to true
         const res = await fetch(
-          "https://iti-server-production.up.railway.app/readyprogram",
+          "https://iti-server-production.up.railway.app/api/readyprogram",
           {
             cache: "no-store",
           }

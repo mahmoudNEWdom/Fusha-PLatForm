@@ -37,7 +37,7 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import CategoryIcon from "@mui/icons-material/Category";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-// Register ChartJS Components
+// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
