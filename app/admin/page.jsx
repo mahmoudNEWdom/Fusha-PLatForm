@@ -25,7 +25,7 @@ import {
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { useTheme } from "../context/ThemeContext";
-import AdminLayout from "../components/admin/AdminLayout";
+import AdminLayout from "../Components/admin/AdminLayout";
 import { motion } from "framer-motion";
 
 // Icons
@@ -37,7 +37,7 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import CategoryIcon from "@mui/icons-material/Category";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-// Register ChartJS components
+// Register ChartJS Components
 ChartJS.register(
   CategoryScale,
   LinearScale,
